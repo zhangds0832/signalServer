@@ -31,6 +31,7 @@ async function startCall() {
 
     // 获取本地视频流
     localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    console.log("localStream =>", localStream);
     localVideo.srcObject = localStream;
 
     // 创建 PeerConnection

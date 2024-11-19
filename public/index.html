@@ -13,8 +13,8 @@
 </head>
 <body>
     <h2>WebRTC Video Chat</h2>
-    <video id="localVideo" autoplay muted webkit-playsinline="webkit-playsinline"></video>
-    <video id="remoteVideo" autoplay muted webkit-playsinline="webkit-playsinline"></video>
+    <video id="localVideo" playsInline autoplay muted></video>
+    <video id="remoteVideo" playsInline autoplay></video>
     <button id="startButton" type="button">Start Call</button> <button id="stopButton">Stop Call</button>
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>
