@@ -13,9 +13,9 @@
 </head>
 <body>
     <h2>WebRTC Video Chat</h2>
-    <video id="localVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
-    <button id="startButton">Start Call</button>
+    <video id="localVideo" autoplay muted webkit-playsinline="webkit-playsinline"></video>
+    <video id="remoteVideo" autoplay muted webkit-playsinline="webkit-playsinline"></video>
+    <button id="startButton" type="button">Start Call</button> <button id="startButton">Start Call</button>
     <script src="/socket.io/socket.io.js"></script>
     <script src="app.js"></script>
 </body>

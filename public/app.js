@@ -8,11 +8,11 @@ let peerConnection;
 // STUN/TURN 服务器配置
 const iceServers = {
     iceServers: [
-        { urls: 'stun:xxx' }, // STUN 服务器
+        { urls: 'stun:45.62.121.73:3478' }, // STUN 服务器
         { 
-            urls: 'turn:xxx', // 替换为您的 TURN 服务器地址
-            username: 'xxx', // TURN 用户名
-            credential: 'xxx' // TURN 密码
+            urls: 'turn:45.62.121.73:3478', // 替换为您的 TURN 服务器地址
+            username: 'nobody', // TURN 用户名
+            credential: 'nogroup' // TURN 密码
         }
     ]
 };
