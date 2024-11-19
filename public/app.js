@@ -1,6 +1,7 @@
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton'); // 新增停止按钮
 
 let localStream;
 let peerConnection;
@@ -56,6 +57,24 @@ async function startCall() {
     socket.emit('signal', { offer }); // 发送 offer 到信令服务器
 }
 
+// 新增停止通话的方法
+function stopCall() {
+    // 停止本地流中的所有轨道
+    if (localStream) {
+        localStream.getTracks().forEach(track => track.stop());
+    }
+
+    // 关闭 PeerConnection
+    if (peerConnection) {
+        peerConnection.close();
+        peerConnection = null;
+    }
+
+    // 清空视频源
+    localVideo.srcObject = null;
+    remoteVideo.srcObject = null;
+}
+
 // 监听信令消息
 socket.on('signal', async message => {
     if (message.offer) {
@@ -72,3 +91,4 @@ socket.on('signal', async message => {
 
 // 绑定按钮事件
 startButton.onclick = startCall;
+stopButton.onclick = stopCall; // 绑定停止按钮事件
