@@ -1,16 +1,17 @@
 const express = require('express');
-const https = require('https');
+// const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const socketIo = require('socket.io');
 
 // 读取 SSL/TLS 证书
-const privateKey = fs.readFileSync('server.key', 'utf8');
-const certificate = fs.readFileSync('server.cert', 'utf8');
-const credentials = { key: privateKey, cert: certificate };
+// const privateKey = fs.readFileSync('server.key', 'utf8');
+// const certificate = fs.readFileSync('server.cert', 'utf8');
+// const credentials = { key: privateKey, cert: certificate };
 
 // 创建 Express 应用
 const app = express();
-const server = https.createServer(credentials, app);
+const server = http.createServer(app);
 const io = socketIo(server);
 
 // 处理静态文件（例如 HTML 和 JS）
@@ -34,5 +35,5 @@ io.on('connection', (socket) => {
 // 启动服务器
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Server is running on https://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
