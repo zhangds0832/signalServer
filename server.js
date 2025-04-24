@@ -4,8 +4,8 @@ const fs = require("fs");
 const socketIo = require("socket.io");
 
 // 读取 SSL/TLS 证书
-const privateKey = fs.readFileSync("server.key", "utf8");
-const certificate = fs.readFileSync("server.cert", "utf8");
+const privateKey = fs.readFileSync("../ssl/toncity.top.key", "utf8");
+const certificate = fs.readFileSync("../ssl/toncity.top.cert", "utf8");
 const credentials = { key: privateKey, cert: certificate };
 
 // 创建 Express 应用
